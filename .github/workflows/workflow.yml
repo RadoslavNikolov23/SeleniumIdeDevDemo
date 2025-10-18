@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -29,7 +29,7 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: donnet build --no-restore
+      run: dotnet build --no-restore
 
     - name: Run tests
       env:
