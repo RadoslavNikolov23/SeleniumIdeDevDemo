@@ -14,7 +14,7 @@ using NUnit.Framework;
 [TestFixture]
 public class TC01IfUserIsInvalidTryAgainTest
 {
-    private ChromeDriver driver;
+    private IWebDriver driver;
     public IDictionary<string, object> vars { get; private set; }
     private IJavaScriptExecutor js;
 
