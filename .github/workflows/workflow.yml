@@ -21,9 +21,9 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Install Chrome
-      uses: nanasess/setup-chromedriver@v1.4.0
-      with:
-        chromedriver-version: latest
+      run: |
+          sudo apt-get install -y chromium-chromedriver
+          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
     - name: Install dependencies
       run: dotnet restore
@@ -33,6 +33,6 @@ jobs:
 
     - name: Run tests
       env:
-        CHROMEWEBDRIVER: /usr/local/bin/chromedriver
+        CHROMEWEBDRIVER: /usr/bin/chromedriver
       run: dotnet test --verbosity normal
 
