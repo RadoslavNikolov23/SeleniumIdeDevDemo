@@ -19,20 +19,14 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-
-    - name: Install Chrome
-      run: |
-          sudo apt-get install -y chromium-chromedriver
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
-
-    - name: Install dependencies
+        
+    - name: Restore Dependencies
       run: dotnet restore
 
     - name: Build
       run: dotnet build --no-restore
 
-    - name: Run tests
-      env:
-        CHROMEWEBDRIVER: /usr/bin/chromedriver
-      run: dotnet test --verbosity normal
+    - name: Run Selenium WebDriver UI Test
+      run: dotnet test --no-build --verbosity normal
+      
 
