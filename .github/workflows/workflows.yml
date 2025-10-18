@@ -32,7 +32,7 @@ jobs:
         run: msbuild MyApp.sln /p:Configuration=${{ matrix.configuration }}
 
       - name: Run unit tests
-        run: dotnet test MyApp.Tests/MyApp.Tests.csproj --configuration ${{ matrix.configuration }} --verbosity normal
+        run: dotnet test TC01IfUserIsInvalidTryAgainTest.csproj --configuration ${{ matrix.configuration }} --verbosity normal
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
